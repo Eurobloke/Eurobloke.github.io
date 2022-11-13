@@ -503,9 +503,11 @@ tr:first-child > td > .fc-day-grid-event {
 /* "more" link that represents hidden events */
 a.fc-more {
   margin: 1px 3px;
-  font-size: 0.85em;
   cursor: pointer;
-  text-decoration: none;
+  background-color: #f67280;
+  margin-top: 3%;
+  padding: 10%;
+  color: white;
 }
 
 a.fc-more:hover {

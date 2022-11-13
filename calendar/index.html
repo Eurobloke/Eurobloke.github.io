@@ -8,29 +8,29 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
 
-    
+
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-  
+
     <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
     <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
-    
-    
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    
+
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
 
     <title>Calendar #9</title>
   </head>
   <body>
-  
+
 
   <div class="content">
     <div id='calendar'></div>
   </div>
-    
-    
+
+
 
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -58,58 +58,32 @@
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
+          //groupId:79,
+          title: 'CALÇOTADA ESCOLAR',
+          start: '2022-11-14',
+          //url: 'http://www.google.es',
+        },
+        {
           title: 'All Day Event',
-          start: '2022-10-10',
-          url: 'http://www.google.es', 
+          start: '2022-11-14',
         },
         {
-          title: 'Long Event3333',
-          start: '2022-10-10',
-          end: '2022-10-10'
+          groupId:79,
+          title: 'TROBADA',
+          start: '2022-11-15',
+          url: 'http://www.google.es',
         },
         {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-02-09T16:00:00'
+        groupId:79,
+        title: 'TROBADA',
+        start: '2022-11-15',
+        url: 'http://www.google.es',
         },
         {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-02-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-02-11',
-          end: '2020-02-13'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-02-12T10:30:00',
-          end: '2020-02-12T12:30:00'
-        },
-                {
-          title: 'Lunch55555',
-          start: '2020-02-15T12:00:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2020-02-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-02-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-02-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-02-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-02-13T07:00:00'
+          groupId:79,
+          title: 'TROBADA',
+          start: '2022-11-15',
+          url: 'http://www.google.es',
         },
       ]
     });
