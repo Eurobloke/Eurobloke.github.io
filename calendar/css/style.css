@@ -1,0 +1,55 @@
+body {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+p {
+  color: #b3b3b3;
+  font-weight: 300; }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+
+a {
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  a, a:hover {
+    text-decoration: none !important; }
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+.content {
+  padding: 1rem 0; }
+
+h2 {
+  font-size: 20px; }
+.fc-unthemed .fc-list-heading td {
+  background: #f67280;
+}
+.fc-more{
+ border-radius: 10%;
+ background-color: #f67280;
+}
+
+.form-control:active, .form-control:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+#calendar {
+  max-width: 100%;
+  margin: 0 auto; }
+  #calendar .fc-view-container {
+    overflow: hidden;
+    padding-bottom: 14%;
+    background-color: #fff;
+ }
+ .imgcenter{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+ }
