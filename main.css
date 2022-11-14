@@ -228,3 +228,10 @@ nav{
 #MENU:hover{
   background-color: #7B719F;
 }
+.active{
+  color: #3A2B70 !important;
+  font-weight: bold;
+}
+.nav-link:hover{
+ font-style: italic;
+}
