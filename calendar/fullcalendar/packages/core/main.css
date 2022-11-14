@@ -584,7 +584,7 @@ TODO: more distinction between this file and common.css
 }
 
 .fc-unthemed td.fc-today {
-  background: #40e0d0;
+  background: #3A2B70;
 }
 
 .fc-unthemed .fc-disabled-day {
@@ -783,8 +783,8 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 .fc-button-group > .fc-button:hover {
   z-index: 1;
-  background-color: #40e0d0;
-  border-color: #40e0d0;
+  background-color: #3A2B70;
+  border-color: #3A2B70;
 }
 
 .fc-button-group > .fc-button:focus,
