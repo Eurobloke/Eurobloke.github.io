@@ -175,6 +175,27 @@ nav{
     margin-left: auto;
     margin-right: auto;
   }
+  .yelow-box3{
+    text-align: left;
+    background-color: #FAEAB7 !important;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .yelow-box4{
+    text-align: left;
+    background-color: #F2AED3 !important;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .yelow-box5{
+    text-align: left;
+    background-color: #FAD3D2 !important;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+  }
 .testofooter{
   text-align: left;
 }
@@ -234,4 +255,28 @@ nav{
 }
 .nav-link:hover{
  font-style: italic;
+}
+.projectsborder{
+border: 2px solid #F0C331;
+}
+.projectsborder1{
+
+border: 2px solid #DB1780;
+}
+.color1{
+  color:#DB1780;
+}
+.projectsborder2{
+border: 2px solid #F0817F;
+}
+.imgcentrada{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+.imgcentrada2{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
