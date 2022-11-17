@@ -125,42 +125,10 @@ justify-content: center;">
 </div>
   </section>
       <section class="second-section">
-        <div class="container">
-          <div id="marquee-cont">
-  <table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td id="marquee">
-        <marquee onmouseover="this.stop();" onmouseout="this.start();" id='scroll'>
-        temp <img src="https://www.flaticon.com/free-icons/food-and-restaurant" width="25px" />
-        </marquee>
-      </td>
-    </tr>
-  </table>
-</div>
-    </div>
-    <script type="text/javascript">
-    //array of news
-const news = ["CONCIERTO EN DIRECTO EL DIA 10 DE OCTUBRE.",
-"CALÇOTADA AL BARRI ENTRE MAYO Y ABRIL.",
-"NOS VAMOS DE CINE EL DIA 14 DE DICIEMBRE A SANTA EULALIA.",
-"EN LA FERIA SE LOGRO RECAUDAR DINERO PARA LOS MAS NECESITADOS.",
-"EL SEÑOR ANDREU TIENE EL CARGO POLITICO MEJOR PAGADO."]
+        <p>
+        <iframe frameborder="0" width="800" height="100" marginwidth="0" marginheight="0" src="http://www.google.com/uds/modules/elements/newsshow/iframe.html?topic=h&rsz=small&format=800x100"></iframe></p>
+      </section>
 
-//logo
-const logo = "<img src='https://www.flaticon.com/free-icons/food-and-restaurant' width='25px' style='margin:0 8px'/>";
-let tickerText = "";
-//looping through the news array
-for(let i=0; i<news.length; i++){
-  tickerText+=news[i];
-  //adds the logo in between news items
-  if(i!=news.length-1){
-    tickerText+=logo;
-  }
-}
-
-document.querySelector("#scroll").innerHTML = tickerText;
-    </script>
-</section>
 <section class="second-section" >
   <div class="container">
   <div class="yelow-box2">
