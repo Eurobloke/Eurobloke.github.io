@@ -2242,6 +2242,11 @@ Docs & License: https://fullcalendar.io/
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(EventApi.prototype, "src", {
+            get: function () { return this._def.src; },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(EventApi.prototype, "rendering", {
             get: function () { return this._def.rendering; },
             enumerable: true,
@@ -2974,6 +2979,7 @@ Docs & License: https://fullcalendar.io/
         groupId: String,
         title: String,
         url: String,
+        src:String,
         rendering: String,
         extendedProps: null
     };

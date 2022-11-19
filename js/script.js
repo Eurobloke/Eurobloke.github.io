@@ -53,7 +53,7 @@ function openModal(date) {
     events = JSON.parse(ref);
     for(let i=0;i<events.length;i++) {
       if (events[i].date == date) {
-        eventText.innerHTML = ` 
+        eventText.innerHTML = `
           <ul>
             <li>Date : <strong>${events[i].date}/</strong></li>
             <li>Event : ${events[i].title}</li>
@@ -61,9 +61,9 @@ function openModal(date) {
         eventTitleInput02.value = events[i].title;
         deleteEventModal.style.display = 'block';
         newEventModal.style.display = 'none';
-      } 
+      }
     }
-  } 
+  }
   newEventModal.style.display = 'block';
   backDrop.style.display = 'block';
 }
@@ -107,7 +107,7 @@ function updateEvent(e) {
           events[i].title = eventTitleInput02.value;
           const event = events[i];
           events.splice(i,1,event);
-          localStorage.setItem('events', JSON.stringify(events)); 
+          localStorage.setItem('events', JSON.stringify(events));
           eventText.innerHTML = `
           <ul>
             <li>Date : <strong>${events[i].date}</strong></li>
@@ -149,50 +149,50 @@ function initNextBtn() {
   nav++;
   loadCalendar();
 }
-  
+
 function loadCalendar() {
 
-  calendar.innerHTML = ""; 
-  
+  calendar.innerHTML = "";
+
   const dt = new Date();
   console.log('-- dt : '+dt);
-  
+
   if (nav !== 0) {
     dt.setMonth(new Date().getMonth() + nav);
     console.log("-- nav : "+nav);
     console.log('-- dt.setMonth(new Date().getMonth() + nav) : '+dt.setMonth(new Date().getMonth() + nav));
   }
-  
+
   const year = dt.getFullYear();
   console.log("-- year : "+year);
-  
+
   const month = dt.getMonth();
   console.log("-- month : "+month);
-  
+
   const day = dt.getDate();
   console.log('-- day : '+day);
 
   const monthString = dt.toLocaleDateString("en-US",{ month:"long"});
   console.log('-- monthString : '+monthString);
-  
+
   monthDisplay.innerHTML = (monthString).substring(0,3)+" "+year;
-  
+
   const firstDayOfMonth = new Date(year,month,1);
   console.log('-- firstDayOfMonth : '+firstDayOfMonth);
-  
+
   const options = {
     weekday:'long',
     year:"numeric",
     month:"numeric",
     day:"numeric"
   }
-  
+
   const dateString = firstDayOfMonth.toLocaleDateString('en-US', options);
   console.log("-- dateString : "+dateString);
-  
+
   const firstDayWeek = dateString.split(',')[0];
   console.log('-- firstDayWeek : '+firstDayWeek);
-  
+
   const paddingDays = days.indexOf(firstDayWeek);
   console.log("-- paddingDays : "+paddingDays);
 
@@ -202,12 +202,12 @@ function loadCalendar() {
   const currentDay00 = nav == 0 ? dt.toLocaleDateString('en-US', options) : "";
   const currentDay = nav == 0 ? currentDay00.split(',')[1] : "";
   console.log('-- currentDay : '+currentDay);
-  
+
   const countDays = paddingDays+daysInMonth;
   console.log('-- countDays : '+countDays);
-    
+
   let days01 = [];
-  
+
   for(let i=1;i<=countDays;i++) {
     const day01 = {
       day:i-paddingDays,
@@ -218,9 +218,9 @@ function loadCalendar() {
     days01.push(day01);
     localStorage.setItem("calendar",JSON.stringify(days01));
   }
-  
+
   const ref = localStorage.getItem("events");
-  
+
   for(let i=0;i<days01.length;i++) {
     const id = days01[i].id;
     const day01 = days01[i].day;
@@ -243,7 +243,7 @@ function loadCalendar() {
             const eventDiv = document.createElement("div");
             eventDiv.classList.add('event');
             eventDiv.textContent = events[i].title;
-            daySquare.appendChild(eventDiv);                 
+            daySquare.appendChild(eventDiv);
           }
         }
       }
@@ -252,14 +252,24 @@ function loadCalendar() {
       daySquare.style.visibility = 'hidden';
     } if(currentDay) {
       daySquare.setAttribute("id","currentDay");
-    } 
+    }
     const test = currentDay == true ? "-- currentDay" : "";
     console.log(`dayString[${i}] : ${dayString} ${test}`);
     calendar.appendChild(daySquare);
-  } 
+  }
 
 }
 
 loadCalendar();
+//Seleccionas todos los elementos con clase test
+var divs = document.getElementsByClassName("fc-event-container");
 
+    //Recorres la lista de elementos seleccionados
+    for (var i=0; i< divs.length; i++) {
+        //Añades un evento a cada elemento
+        divs[i].addEventListener("click",function() {
+           //Aquí la función que se ejecutará cuando se dispare el evento
+           alert(this.innerHTML); //En este caso alertaremos el texto del cliqueado
+        });
+    }
 //  https://github.com/portexe/VanillaCalendar/blob/master/script

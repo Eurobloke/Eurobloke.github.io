@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js" ></script>
 
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -23,9 +24,22 @@
 
     <title>CALENDARI</title>
   </head>
-  <body>
-
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="cd-popup contact" role="alert">
+  <form id="contactform" class="contact-form">
+    <div class="cd-popup-container2" style="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <img width="70%" src="../images/eventos/evento1.jpg" alt="" srcset="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
   <div class="content">
     <div id='calendar'></div>
   </div>
@@ -39,7 +53,150 @@
     <script src='fullcalendar/packages/core/main.js'></script>
     <script src='fullcalendar/packages/interaction/main.js'></script>
     <script src='fullcalendar/packages/daygrid/main.js'></script>
+    <script type="text/javascript">
 
+    $(document).ready(function($) {
+
+      /* ------------------------- */
+      /* Contact Form Interactions */
+      /* ------------------------- */
+      $('#contact').on('click', function(event) {
+
+      });
+
+      //close popup when clicking x or off popup
+      $('.cd-popup').on('click', function(event) {
+        if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
+          event.preventDefault();
+          $(this).removeClass('is-visible');
+        }
+      });
+
+      //close popup when clicking the esc keyboard button
+      $(document).keyup(function(event) {
+        if (event.which == '27') {
+          $('.cd-popup').removeClass('is-visible');
+        }
+      });
+
+      /* ------------------- */
+      /* Contact Form Labels */
+      /* ------------------- */
+      $('#name').keyup(function() {
+        $('.name').addClass('typing');
+        if ($(this).val().length == 0) {
+          $('.name').removeClass('typing');
+        }
+      });
+      $('#email').keyup(function() {
+        $('.email').addClass('typing');
+        if ($(this).val().length == 0) {
+          $('.email').removeClass('typing');
+        }
+      });
+      $('#message').keyup(function() {
+        $('.message').addClass('typing');
+        if ($(this).val().length == 0) {
+          $('.message').removeClass('typing');
+        }
+      });
+
+      /* ----------------- */
+      /* Handle submission */
+      /* ----------------- */
+      $('#contactform').submit(function() {
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var message = $('#message').val();
+        var human = $('#human:checked').val();
+
+        if (human) {
+          if (validateEmail(email)) {
+            if (name) {
+              if (message) {
+
+    // Handle submitting data somewhere
+    // For a tutorial on submitting the form to a Google Spreadsheet, see:
+    // https://notnaturaltutorials.wordpress.com/2016/03/20/submit-form-to-spreadsheet/
+
+    /*
+                var googleFormsURL = "https://docs.google.com/forms/d/1dHaFG67d7wwatDtiVNOL98R-FwW1rwdDwdFqqKJggBM3nFB4/formResponse";
+                // replace these example entry numbers
+                var spreadsheetFields = {
+                  "entry.212312005": name,
+                  "entry.1226278897": email,
+                  "entry.1835345325": message
+                }
+                $.ajax({
+                  url: googleFormsURL,
+                  data: spreadsheetFields,
+                  type: "POST",
+                  dataType: "xml",
+                  statusCode: {
+                    0: function() {
+
+                    },
+                    200: function() {
+
+                    }
+                  }
+                });
+    */
+
+                closeForm();
+
+              } else {
+                $('#notification-text').html("<strong>Please let us know what you're thinking!</strong>");
+                $('.notification').addClass('is-visible');
+              }
+            } else {
+              $('#notification-text').html('<strong>Please provide a name.</strong>');
+              $('.notification').addClass('is-visible');
+            }
+          } else {
+            $('#notification-text').html('<strong>Please use a valid email address.</strong>');
+            $('.notification').addClass('is-visible');
+          }
+        } else {
+          $('#notification-text').html('<h3><strong><em>Warning: Please prove you are a human and not a robot.</em></strong></h3>');
+          $('.notification').addClass('is-visible');
+        }
+
+        return false;
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //ESTO ES EL CALENDARIO
+    //Seleccionas todos los elementos con clase test
+    var divs = document.getElementsByClassName("fc-day-grid-event fc-h-event fc-event fc-start fc-end fc-draggable");
+
+        //Recorres la lista de elementos seleccionados
+        for (var i=0; i< divs.length; i++) {
+            //Añades un evento a cada elemento
+            divs[i].addEventListener("click",function() {
+               //Aquí la función que se ejecutará cuando se dispare el evento
+               alert(this.innerHTML); //En este caso alertaremos el texto del cliqueado
+            });
+        }
+    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
@@ -52,73 +209,61 @@
 
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+      eventDidMount: function(info) {
+      var tooltip = new Tooltip(info.el, {
+        title: info.event.extendedProps.description,
+        placement: 'top',
+        trigger: 'hover',
+        container: 'body'
+      });
+    },
+      eventClick: function(info) {
+        var eventObj = info.event;
+
+        if (eventObj.src) {
+
+          $('.contact').addClass('is-visible');
+
+          alert(
+            'Clicked ' + eventObj.title + '.\n' +
+            'Will open ' + eventObj.src + ' in a new tab'
+          );
+
+          //window.open(eventObj.url); PARA ABRIR VENTANA
+
+          info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
+        } else {
+          alert('Clicked ' + eventObj.title);
+        }
+      },
       plugins: [ 'interaction', 'dayGrid' ],
       defaultDate: stringfecha.value,
       editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
-          //groupId:79,
-          title: 'CALÇOTADA ESCOLAR',
-          start: '2022-11-7',
-          //url: 'http://www.google.es',
-        },
-        {
-          title: 'All Day Event',
-          start: '2022-11-1',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-18',
-          url: 'http://www.google.es',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-21',
-          url: 'http://www.google.es',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-25',
-        },
-        {
-          //groupId:79,
-          title: 'CALÇOTADA ESCOLAR',
-          start: '2022-11-14',
-          //url: 'http://www.google.es',
-        },
-        {
-          title: 'All Day Event',
-          start: '2022-11-26',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-15',
-          url: 'http://www.google.es',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-15',
-          url: 'http://www.google.es',
-        },
-        {
-          groupId:79,
-          title: 'TROBADA',
-          start: '2022-11-15',
+          groupId: 1,
+          title: 'CHOCOLATADA POPULAR',
+          start: '2022-11-08T17:30:00',
+          description: 'description for All Day Event',
+          url: 'http://google.com/',
+          src:'eventos/evento1.png'
         },
       ]
+
+
     });
 
     calendar.render();
+
   });
 
     </script>
 
     <script src="js/main.js"></script>
+
   </body>
+ <script type="text/javascript">
+
+ </script>
 </html>
