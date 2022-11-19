@@ -56,14 +56,6 @@
     <script type="text/javascript">
 
     $(document).ready(function($) {
-
-      /* ------------------------- */
-      /* Contact Form Interactions */
-      /* ------------------------- */
-      $('#contact').on('click', function(event) {
-
-      });
-
       //close popup when clicking x or off popup
       $('.cd-popup').on('click', function(event) {
         if ($(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')) {
@@ -221,21 +213,10 @@
         var eventObj = info.event;
 
         if (eventObj.src) {
-
+          /**eventObj.src*/
           $('.contact').addClass('is-visible');
 
-          alert(
-            'Clicked ' + eventObj.title + '.\n' +
-            'Will open ' + eventObj.src + ' in a new tab'
-          );
-
-          //window.open(eventObj.url); PARA ABRIR VENTANA
-
-          info.jsEvent.preventDefault(); // prevents browser from following link in current tab.
-        } else {
-          alert('Clicked ' + eventObj.title);
-        }
-      },
+      }},
       plugins: [ 'interaction', 'dayGrid' ],
       defaultDate: stringfecha.value,
       editable: true,
@@ -246,7 +227,7 @@
           title: 'CHOCOLATADA POPULAR',
           start: '2022-11-08T17:30:00',
           description: 'description for All Day Event',
-          url: 'http://google.com/',
+          /*url: 'http://google.com/',*/
           src:'eventos/evento1.png'
         },
       ]
