@@ -33,7 +33,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md">
-            <img width="70%" src="../images/eventos/evento1.jpg" alt="" srcset="">
+            <img id="flayer" width="70%" src="" alt="" srcset="">
           </div>
         </div>
       </div>
@@ -213,8 +213,9 @@
         var eventObj = info.event;
 
         if (eventObj.src) {
-          /**eventObj.src*/
+          /**eventObj.src agregamos imagen segun el evento*/
           $('.contact').addClass('is-visible');
+          document.getElementById("flayer").setAttribute("src", eventObj.src);
 
       }},
       plugins: [ 'interaction', 'dayGrid' ],
@@ -228,7 +229,39 @@
           start: '2022-11-08T17:30:00',
           description: 'description for All Day Event',
           /*url: 'http://google.com/',*/
-          src:'eventos/evento1.png'
+          src:'../images/eventos/evento1.jpg'
+        },
+        {
+          groupId: 1,
+          title: 'OTRO FLAYER',
+          start: '2022-11-09T17:30:00',
+          description: 'description for All Day Event',
+          /*url: 'http://google.com/',*/
+          src:'../images/eventos/evento2.jpg'
+        },
+        {
+          groupId: 1,
+          title: 'OTRO MAS FLAYER',
+          start: '2022-11-10T17:30:00',
+          description: 'description for All Day Event',
+          /*url: 'http://google.com/',*/
+          src:'../images/eventos/evento3.jpeg'
+        },
+        {
+          groupId: 1,
+          title: 'OTRO MAS FLAYER',
+          start: '2022-11-10T17:30:00',
+          description: 'description for All Day Event',
+          /*url: 'http://google.com/',*/
+          src:'../images/eventos/evento1.jpg'
+        },
+        {
+          groupId: 1,
+          title: 'OTRO MAS FLAYER',
+          start: '2022-11-10T17:30:00',
+          description: 'description for All Day Event',
+          /*url: 'http://google.com/',*/
+          src:'../images/eventos/evento3.jpeg'
         },
       ]
 
