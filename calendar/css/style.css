@@ -53,3 +53,8 @@ h2 {
    margin-right: auto;
    width: 50%;
  }
+ .zindex{
+     z-index: 1 !important;
+     pointer-events: none !important;
+     margin: 3%;
+ }
