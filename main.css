@@ -299,3 +299,23 @@ padding-top: 2%;
 .textocentrado{
   text-align: center !important;
 }
+.textoizquierda{
+  text-align: left !important;
+}
+.second-section .row .col-md-4 p {
+  padding: 0px 0px !important;
+  margin-top: 5%;
+  line-height: 0;
+}
+.anulpadding{
+  margin-top: 10% !important;
+  border-color: red;
+}
+.especialfooter{
+  padding-bottom: -10% !important;
+  margin-bottom: 5% !important;
+}
+#projects .col-md-4 .activadores img{
+  height: auto !important;
+  object-fit: scale-down !important;
+}
