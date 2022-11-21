@@ -316,10 +316,12 @@ padding-top: 2%;
   margin-bottom: 5% !important;
 }
 #projects .col-md-4 .activadores img{
+  width: 10% !important;
   height: auto !important;
   object-fit: scale-down !important;
 }
 #projects .col-md-4 .activadores2 img{
+  width: 10% !important;
   height: auto !important;
   object-fit: scale-down !important;
 }
